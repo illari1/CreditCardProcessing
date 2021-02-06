@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.boot:spring-boot-starter-aop:2.3.9.BUILD-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/2.3.9.BUILD-SNAPSHOT/8d7fa7de76ac5a631400a2bfdbb8b9c3ca037065/spring-boot-starter-aop-2.3.9.BUILD-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/2.3.9.BUILD-SNAPSHOT/e660b635f51df72caa0b212f966301e4851fd7dd/spring-boot-starter-aop-2.3.9.BUILD-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/2.3.9.BUILD-SNAPSHOT/1ae45f93cf3af58ceeba827c9e5369554e0a41e2/spring-boot-starter-aop-2.3.9.BUILD-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
