@@ -1,6 +1,47 @@
 package com.publicis.microservices.creditcards.service;
 
+import com.publicis.microservices.creditcards.domain.error.CardErrorResponse;
+import com.publicis.microservices.creditcards.domain.exception.InvalidCardException;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ValidationService {
+
+    void validateCardNumber (String carNumber) throws InvalidCardException {
+
+        String message = "";
+        String code = "";
+        boolean isThereException = false;
+
+        if (carNumber.isEmpty() || carNumber.length() > 19) {
+            code = "invalid-card-length";
+            message = "Invalid card length.";
+            isThereException = true;
+        }
+
+        else if (!onlyDigits(carNumber)) {
+            code = "invalid-card-format";
+            message = "The card number provided must contain only digits.";
+            isThereException = true;
+        }
+
+        else if (!validateLuhn (carNumber)) {
+            code = "card-number-validation-error";
+            message = "The card number provided is not valid";
+            isThereException = true;
+        }
+
+        if (isThereException) {
+            CardErrorResponse cardErrorResponse = CardErrorResponse.builder()
+                    .message(message)
+                    .code(code)
+                    .status(String.valueOf(HttpStatus.BAD_REQUEST.value()))
+                    .build();
+
+            throw new InvalidCardException(cardErrorResponse);
+        }
+    }
 
     /**
      * Starting from the rightmost digit double the value of every second digit, If doubling of a number
@@ -11,7 +52,7 @@ public class ValidationService {
      * @param cardNumber
      * @return
      */
-    static boolean validateLuhn(String cardNumber) {
+    public static boolean  validateLuhn(String cardNumber) {
 
         int numberDigits = cardNumber.length();
         boolean isEven= false;
@@ -32,6 +73,16 @@ public class ValidationService {
             isEven = !isEven;
         }
         return (sum % 10 == 0);
+    }
+
+    public static boolean onlyDigits(String str) {
+        int numberDigits = str.length();
+        for (int i = 0; i < numberDigits; i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

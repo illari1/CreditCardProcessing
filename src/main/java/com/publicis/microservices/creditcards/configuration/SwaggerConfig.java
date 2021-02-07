@@ -4,6 +4,7 @@ import com.google.common.base.Predicate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -21,6 +22,7 @@ import static com.google.common.base.Predicates.or;
  */
 @EnableSwagger2
 @Configuration
+@Profile("!production")
 public class SwaggerConfig {
 
     @Value("${spring.application.name}")

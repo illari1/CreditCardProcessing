@@ -2,14 +2,16 @@ package com.publicis.microservices.creditcards.service;
 
 import com.publicis.microservices.creditcards.CardUtils;
 import com.publicis.microservices.creditcards.api.controller.dto.RegistrationCardRequest;
-import com.publicis.microservices.creditcards.entity.Card;
+import com.publicis.microservices.creditcards.domain.entity.Card;
 import com.publicis.microservices.creditcards.repository.CardRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import javax.swing.text.Utilities;
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 
@@ -23,6 +25,8 @@ class CardServiceTest {
     private static int CARD_ID = 1;
     @Mock
     private CardRepository cardRepository;
+    @Mock
+    private ValidationService validationService;
     @InjectMocks
     private CardService cardService;
 
@@ -42,5 +46,14 @@ class CardServiceTest {
         assertEquals(CARD_ID, newCard.getId());
         assertEquals(new BigDecimal(0), newCard.getBalance());
         verify(cardRepository).save(any(Card.class));
+        verify(validationService).validateCardNumber(registrationCardRequest.getCardNumber());
+    }
+
+    @Test
+    void getAllCards() {
+        when(cardRepository.findAll()).thenReturn(List.of(CardUtils.buildCard()));
+        List<Card> cards = cardService.getAllCards();
+        assertEquals(1, cards.size());
+        verify(cardRepository).findAll();
     }
 }
