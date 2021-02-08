@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import javax.swing.text.Utilities;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -39,9 +38,7 @@ class CardServiceTest {
     @Test
     void shouldCreateNewCreditCard() {
         RegistrationCardRequest registrationCardRequest = CardUtils.buildCardRequest();
-        when(cardRepository.save(any(Card.class))).thenReturn(Card.builder().id(CARD_ID)
-                                                                            .balance(new BigDecimal(0))
-                                                                            .build());
+        when(cardRepository.save(any(Card.class))).thenReturn(CardUtils.buildCard());
         Card newCard = cardService.registrationCard(registrationCardRequest);
         assertEquals(CARD_ID, newCard.getId());
         assertEquals(new BigDecimal(0), newCard.getBalance());

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.publicis.microservices.creditcards.service.ValidationServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-02-08T00:07:12" hostname="LDNMAC60.local" time="0.007">
+  <properties/>
+  <testcase name="shouldCardValidateLuhn()" classname="com.publicis.microservices.creditcards.service.ValidationServiceTest" time="0.001"/>
+  <testcase name="shouldCardNoValidateLuhn()" classname="com.publicis.microservices.creditcards.service.ValidationServiceTest" time="0.001"/>
+  <testcase name="shouldFailWhenCardNumberIsInvalid()" classname="com.publicis.microservices.creditcards.service.ValidationServiceTest" time="0.002"/>
+  <testcase name="cardNumberIsNotOnlyDigits()" classname="com.publicis.microservices.creditcards.service.ValidationServiceTest" time="0.001"/>
+  <testcase name="shouldCardNumberOnlyDigits()" classname="com.publicis.microservices.creditcards.service.ValidationServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

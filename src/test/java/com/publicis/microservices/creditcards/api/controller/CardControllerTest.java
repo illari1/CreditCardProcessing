@@ -45,8 +45,7 @@ class CardControllerTest {
     void shouldCreateNewCreditCard() throws Exception {
 
         RegistrationCardRequest registrationCardRequest = CardUtils.buildCardRequest();
-        when(cardService.registrationCard(registrationCardRequest)).thenReturn(Card.builder().
-                                                                                id(CARD_ID).build());
+        when(cardService.registrationCard(registrationCardRequest)).thenReturn(CardUtils.buildCard());
 
         mockMvc.perform(
                     post("/api/v1/cards")
@@ -60,7 +59,7 @@ class CardControllerTest {
 
     @Test
     void getAllCards() throws Exception {
-        when(cardService.getAllCards()).thenReturn(List.of(Card.builder().id(CARD_ID).build()));
+        when(cardService.getAllCards()).thenReturn(List.of(CardUtils.buildCard()));
         mockMvc.perform(
                 get("/api/v1/cards"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))

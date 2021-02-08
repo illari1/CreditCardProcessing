@@ -24,6 +24,7 @@ public class CardUtils {
     public static Card buildCard() {
 
         return Card.builder()
+                .id(1)
                 .name(NAME)
                 .cardNumber(CARD_NUMBER)
                 .limitCard(LIMIT)

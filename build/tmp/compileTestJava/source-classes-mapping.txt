@@ -1,6 +1,8 @@
+com/publicis/microservices/creditcards/service/ValidationServiceTest.java
+ com.publicis.microservices.creditcards.service.ValidationServiceTest
 com/publicis/microservices/creditcards/CardUtils.java
  com.publicis.microservices.creditcards.CardUtils
-com/publicis/microservices/creditcards/api/controller/CardControllerTest.java
- com.publicis.microservices.creditcards.api.controller.CardControllerTest
 com/publicis/microservices/creditcards/service/CardServiceTest.java
  com.publicis.microservices.creditcards.service.CardServiceTest
+com/publicis/microservices/creditcards/api/controller/CardControllerTest.java
+ com.publicis.microservices.creditcards.api.controller.CardControllerTest

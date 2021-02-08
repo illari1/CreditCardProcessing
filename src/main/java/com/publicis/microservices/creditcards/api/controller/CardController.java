@@ -39,6 +39,7 @@ public class CardController {
         log.info("End registration, response: {} status: ", response, HttpStatus.CREATED);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+
     @ApiOperation(value = "Get All the Credit Cards")
     @GetMapping(value = "/cards", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Returns all credit card in the system")
